@@ -5,7 +5,7 @@
 ## はじめに
 
 redux を使っているプロジェクトは結構あるが  
-store を見てみるとネストが深  かったりして  
+store を見てみるとネストが深かったりして  
 reducer での処理が辛かったりと  
 しっかり設計されてもるものは少ない
 
@@ -115,7 +115,7 @@ normalizr で store のネストを少なくできる
 
 +++
 
-参照用 id(result) とデータの実体 (entities) に分離  
+参照用 id(result) とデータの実体 (entities) に分離  
 articles, users, comments を分けて store に格納
 
 +++
@@ -167,8 +167,8 @@ redux でよくあるセレクター
 
 ```javascript
 const mapStateToProps = state => {
-  const someData = state.some.data;
-  const filteredData = filterDate(someData);
+  const someData = state.some.data;
+  const filteredData = filterDate(someData);
   const sortedData = sortDate(filteredData);
 
   return { data: sortedData };
@@ -180,7 +180,7 @@ const mapStateToProps = state => {
 ダメな点 1
 
 some.data にアクセスする  
-components が他にもあった場合に  
+components が他にもあった場合に  
 同じ記述をいくつも書かないといけない
 
 +++
