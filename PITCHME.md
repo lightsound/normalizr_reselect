@@ -5,16 +5,15 @@
 ## はじめに
 
 redux を使っているプロジェクトは結構あるが  
-store を見てみるとネストが深かったり  
+store を見てみるとネストが深  かったりして  
 reducer での処理が辛かったりと  
 しっかり設計されてもるものは少ない
 
 +++
 
-store も DB と同じように設計することで  
-参照しやすくなったり複雑さを回避できる  
-今回は normalizr で store を正規化して  
-reselect でキレイにデータを取り出してみる
+normalizr で api response を正規化して  
+reselect でデータを取り出すようにすると  
+複雑さの少ないキレイな store ができあがる
 
 ---
 
@@ -83,12 +82,7 @@ export default (state = {}, action) => {
 
 +++
 
-normalizr を使えば api response を正規化して  
-store のネストを少なくすることができる
-
-+++
-
-api response を normalizr で 正規化
+normalizr で store のネストを少なくできる
 
 ```javascript
 {
@@ -163,19 +157,13 @@ store から必要な値を取り出すこと
 
 +++
 
-store は 1 つのツリーオブジェクト  
-view で使うのはツリーの中の一部だけで  
-不必要なデータは渡したくない
-
-+++
-
 redux でよくあるセレクター
 
 ```javascript
 const mapStateToProps = state => {
   const someData = state.some.data;
-  const filteredData = expensiveFiltering(someData);
-  const sortedData = expensiveSorting(filteredData);
+  const filteredData = filterDate(someData);
+  const sortedData = sortDate(filteredData);
 
   return { data: sortedData };
 };
@@ -192,13 +180,6 @@ some.data にアクセスする
 +++
 
 ダメな点 2
-
-some.data の構造に変更があった場合  
-いろんなところで書き換えないといけない
-
-+++
-
-ダメな点 3
 
 state.some.data とは関係ない  
 state の更新であった場合にも  
@@ -247,18 +228,21 @@ outputSelector が実行されず
 
 +++
 
-さっきのダメな点がすべて解決される  
-無駄なレンダリングも防げるのでオススメ
+さっきのダメな点が解決される
+
++++
+
+selector 用のディレクトリを作って運用している
+
+![selector-directory](assets/img/selector.png)
 
 ---
 
 ## おわりに
 
 normalizr と reselect の  
-組み合わせは非常に強力
-
-正規化によって store からの  
-データ抽出も楽になる
+組み合わせは非常に強力  
+store からのデータ抽出が楽になる
 
 +++
 
