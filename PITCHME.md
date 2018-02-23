@@ -11,9 +11,15 @@ reducer での処理が辛かったりと
 
 +++
 
-normalizr で api response を正規化して  
-reselect でデータを取り出すようにすると  
+**normalizr** で api response を正規化して  
+**reselect** でデータを取り出すようにすると  
 複雑さの少ないキレイな store ができあがる
+
++++
+
+図で言うとココの話をする
+
+![selector-directory](assets/img/redux.png)
 
 ---
 

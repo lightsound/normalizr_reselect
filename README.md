@@ -2,7 +2,10 @@
 
 ## はじめに
 
-redux を使っているプロジェクトは結構あるが store を見てみるとネストが深かったりして reducer での処理が辛かったりと、しっかり設計されてもるものは少ない。normalizr で api response を正規化して reselect でデータを取り出すようにすると複雑さの少ないキレイな store ができあがる。
+redux を使っているプロジェクトは結構あるが store を見てみるとネストが深かったりして reducer での処理が辛かったりと、しっかり設計されてもるものは少ない。**normalizr** で api response を正規化して **reselect** でデータを取り出すようにすると複雑さの少ないキレイな store ができあがる。
+
+図で言うとここの話
+![selector-directory](assets/img/redux.png)
 
 ## [normalizr](https://github.com/paularmstrong/normalizr) (json を正規化するライブラリ)
 
